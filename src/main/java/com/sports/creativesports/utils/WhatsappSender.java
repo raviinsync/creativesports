@@ -1,8 +1,6 @@
-package com.sports.creativesports.scheduledtasks;
+package com.sports.creativesports.utils;
 
 import com.twilio.Twilio;
-import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.type.PhoneNumber;
 
 public class WhatsappSender {
   // Find your Account Sid and Token at twilio.com/console
