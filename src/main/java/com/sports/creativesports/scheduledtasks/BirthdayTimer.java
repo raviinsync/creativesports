@@ -7,7 +7,7 @@ import java.util.List;
 import com.sports.creativesports.players.PlayerRepository;
 import com.sports.creativesports.players.Players;
 import com.sports.creativesports.utils.CommonUtils;
-import com.sports.creativesports.utils.WhatsappSender;
+import com.sports.creativesports.utils.WhatsAppService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class BirthdayTimer {
   private PlayerRepository playerRepository;
 
   // currently scheduler configured for 2 minutes
-  @Scheduled(cron ="0 0/3 * * * ?")
+  @Scheduled(cron ="0 0/2 * * * ?")
   public void sendWhatsappMessage() {
 
     /*
@@ -43,7 +43,7 @@ public class BirthdayTimer {
       Boolean hasBirthDay= CommonUtils.hasBirthday(eachPlayer.getBirthDate());
 
       if(hasBirthDay){
-        WhatsappSender.sendMessage("+14155238886", "+919535632642", "Hi "+eachPlayer.getFirstName()+" "+eachPlayer.getLastName()+BIRTHDAY_MESSAGE);
+        WhatsAppService.sendMessage("+14155238886", eachPlayer.getMobile(), "Hi " + eachPlayer.getFirstName() + " " + eachPlayer.getLastName() + BIRTHDAY_MESSAGE);
       }
       System.out.println(eachPlayer.getFirstName());
     }
