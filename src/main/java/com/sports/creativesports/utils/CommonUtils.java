@@ -23,10 +23,11 @@ public class CommonUtils {
 
     if (currentMonthDay.equals(birthday)) {
       System.out.println("Yes!!");
+      return true;
     } else {
       System.out.println("Sorry, today is not your birthday");
+      return false;
     }
-    return true;
   }
 
   public static LocalDate convertToLocalDateViaInstant(Date dateToConvert) {
